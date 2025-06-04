@@ -1,5 +1,5 @@
 /*
- Leaflet.draw 1.0.3+960eaa3, a plugin that adds drawing and editing tools to Leaflet powered maps.
+ Leaflet.draw 1.0.3+bfafb4f, a plugin that adds drawing and editing tools to Leaflet powered maps.
  (c) 2012-2017, Jacob Toye, Jon West, Smartrak, Leaflet
 
  https://github.com/Leaflet/Leaflet.draw
@@ -8,7 +8,7 @@
 (function (window, document, undefined) {/**
  * Leaflet.draw assumes that you have already included the Leaflet library.
  */
-L.drawVersion = "1.0.3+960eaa3";
+L.drawVersion = "0.4.2";
 /**
  * @class L.Draw
  * @aka Draw
@@ -92,107 +92,107 @@ L.drawLocal = {
 			// #TODO: this should be reorganized where actions are nested in actions
 			// ex: actions.undo  or actions.cancel
 			actions: {
-				title: 'Cancel drawing',
-				text: 'Cancel'
+				title: "Cancelar desenho",
+				text: "Cancelar",
 			},
 			finish: {
-				title: 'Finish drawing',
-				text: 'Finish'
+				title: "Finalizar desenho",
+				text: "Finalizar",
 			},
 			undo: {
-				title: 'Delete last point drawn',
-				text: 'Delete last point'
+				title: "Excluir último ponto desenhado",
+				text: "Excluir último ponto",
 			},
 			buttons: {
-				polyline: 'Draw a polyline',
-				polygon: 'Draw a polygon',
-				rectangle: 'Draw a rectangle',
-				circle: 'Draw a circle',
-				marker: 'Draw a marker',
-				circlemarker: 'Draw a circlemarker'
-			}
+				polyline: "Desenhar uma polilinha",
+				polygon: "Desenhar um polígono",
+				rectangle: "Desenhar um retângulo",
+				circle: "Desenhar um círculo",
+				marker: "Desenhar um marcador",
+				circlemarker: "Desenhar um marcador circular",
+			},
 		},
 		handlers: {
 			circle: {
 				tooltip: {
-					start: 'Click and drag to draw circle.'
+					start: "Clique e arraste para desenhar um círculo.",
 				},
-				radius: 'Radius'
+				radius: "Raio",
 			},
 			circlemarker: {
 				tooltip: {
-					start: 'Click map to place circle marker.'
-				}
+					start: "Clique no mapa para colocar um marcador circular.",
+				},
 			},
 			marker: {
 				tooltip: {
-					start: 'Click map to place marker.'
-				}
+					start: "Clique no mapa para colocar um marcador.",
+				},
 			},
 			polygon: {
 				tooltip: {
-					start: 'Click to start drawing shape.',
-					cont: 'Click to continue drawing shape.',
-					end: 'Click first point to close this shape.'
-				}
+					start: "Clique para começar a desenhar a forma.",
+					cont: "Clique para continuar desenhando a forma.",
+					end: "Clique no primeiro ponto para fechar esta forma.",
+				},
 			},
 			polyline: {
-				error: '<strong>Error:</strong> shape edges cannot cross!',
+				error: "<strong>Erro:</strong> as bordas da forma não podem se cruzar!",
 				tooltip: {
-					start: 'Click to start drawing line.',
-					cont: 'Click to continue drawing line.',
-					end: 'Click last point to finish line.'
-				}
+					start: "Clique para começar a desenhar a linha.",
+					cont: "Clique para continuar desenhando a linha.",
+					end: "Clique no último ponto para finalizar a linha.",
+				},
 			},
 			rectangle: {
 				tooltip: {
-					start: 'Click and drag to draw rectangle.'
-				}
+					start: "Clique e arraste para desenhar um retângulo.",
+				},
 			},
 			simpleshape: {
 				tooltip: {
-					end: 'Release mouse to finish drawing.'
-				}
-			}
-		}
+					end: "Solte o mouse para finalizar o desenho.",
+				},
+			},
+		},
 	},
 	edit: {
 		toolbar: {
 			actions: {
 				save: {
-					title: 'Save changes',
-					text: 'Save'
+					title: "Salvar alterações",
+					text: "Salvar",
 				},
 				cancel: {
-					title: 'Cancel editing, discards all changes',
-					text: 'Cancel'
+					title: "Cancelar edição, descarta todas as alterações",
+					text: "Cancelar",
 				},
 				clearAll: {
-					title: 'Clear all layers',
-					text: 'Clear All'
-				}
+					title: "Limpar todas as camadas",
+					text: "Limpar Tudo",
+				},
 			},
 			buttons: {
-				edit: 'Edit layers',
-				editDisabled: 'No layers to edit',
-				remove: 'Delete layers',
-				removeDisabled: 'No layers to delete'
-			}
+				edit: "Editar camadas",
+				editDisabled: "Nenhuma camada para editar",
+				remove: "Excluir camadas",
+				removeDisabled: "Nenhuma camada para excluir",
+			},
 		},
 		handlers: {
 			edit: {
 				tooltip: {
-					text: 'Drag handles or markers to edit features.',
-					subtext: 'Click cancel to undo changes.'
-				}
+					text: "Arraste os pontos ou marcadores para editar os recursos.",
+					subtext: "Clique em cancelar para desfazer as alterações.",
+				},
 			},
 			remove: {
 				tooltip: {
-					text: 'Click on a feature to remove.'
-				}
-			}
-		}
-	}
+					text: "Clique em um recurso para removê-lo.",
+				},
+			},
+		},
+	},
 };
 
 
