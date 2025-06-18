@@ -1,5 +1,5 @@
 /*
- Leaflet.draw 1.0.3+bfafb4f, a plugin that adds drawing and editing tools to Leaflet powered maps.
+ Leaflet.draw 1.0.3+3ce2c53, a plugin that adds drawing and editing tools to Leaflet powered maps.
  (c) 2012-2017, Jacob Toye, Jon West, Smartrak, Leaflet
 
  https://github.com/Leaflet/Leaflet.draw
@@ -2727,13 +2727,14 @@ L.Edit = L.Edit || {};
  * @inherits L.Edit.CircleMarker
  */
 L.Edit.Circle = L.Edit.CircleMarker.extend({
-
 	_createResizeMarker: function () {
 		var center = this._shape.getLatLng(),
 			resizemarkerPoint = this._getResizeMarkerPoint(center);
 
 		this._resizeMarkers = [];
-		this._resizeMarkers.push(this._createMarker(resizemarkerPoint, this.options.resizeIcon));
+		this._resizeMarkers.push(
+			this._createMarker(resizemarkerPoint, this.options.resizeIcon)
+		);
 	},
 
 	_getResizeMarkerPoint: function (latlng) {
@@ -2747,6 +2748,7 @@ L.Edit.Circle = L.Edit.CircleMarker.extend({
 		var moveLatLng = this._moveMarker.getLatLng();
 
 		// Calculate the radius based on the version
+		var radius;
 		if (L.GeometryUtil.isVersion07x()) {
 			radius = moveLatLng.distanceTo(latlng);
 		} else {
@@ -2756,16 +2758,26 @@ L.Edit.Circle = L.Edit.CircleMarker.extend({
 
 		if (this._map.editTooltip) {
 			this._map._editTooltip.updateContent({
-				text: L.drawLocal.edit.handlers.edit.tooltip.subtext + '<br />' + L.drawLocal.edit.handlers.edit.tooltip.text,
-				subtext: L.drawLocal.draw.handlers.circle.radius + ': ' +
-				L.GeometryUtil.readableDistance(radius, true, this.options.feet, this.options.nautic)
+				text:
+					L.drawLocal.edit.handlers.edit.tooltip.subtext +
+					"<br />" +
+					L.drawLocal.edit.handlers.edit.tooltip.text,
+				subtext:
+					L.drawLocal.draw.handlers.circle.radius +
+					": " +
+					L.GeometryUtil.readableDistance(
+						radius,
+						true,
+						this.options.feet,
+						this.options.nautic
+					),
 			});
 		}
 
 		this._shape.setRadius(radius);
 
-		this._map.fire(L.Draw.Event.EDITRESIZE, {layer: this._shape});
-	}
+		this._map.fire(L.Draw.Event.EDITRESIZE, { layer: this._shape });
+	},
 });
 
 L.Circle.addInitHook(function () {
